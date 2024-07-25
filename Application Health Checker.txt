@@ -1,0 +1,11 @@
+#!/bin/bash
+
+url="http://example.com"  # Replace with your application's URL
+
+status_code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+
+if [ "$status_code" -ge 200 ] && [ "$status_code" -lt 400 ]; then
+    echo "Application is UP"
+else
+    echo "Application is DOWN"
+fi
